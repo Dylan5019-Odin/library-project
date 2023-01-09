@@ -44,33 +44,38 @@ const displayBook = () => {
   let library = document.querySelector(".library");
 
   myLibrary.forEach((book, index) => {
-    let book_div = document.createElement("div");
-    book_div.className = `book_${index}`;
-    library.append(book_div);
-
+    let book_card = document.createElement("div");
+    book_card.id = `book_${index}`;
+    book_card.className = `card`;
+    library.append(book_card);
 
     let title = document.createElement("h1");
     title.innerText = book.title;
-    book_div.appendChild(title);
+    book_card.appendChild(title);
 
     let author = document.createElement("p");
-    author.innerText = book.author;
-    book_div.appendChild(author);   
-
-    let pages = document.createElement("p")
-    pages.innerText = `${book.pages} pages`;
-    book_div.append(pages);
+    author.innerHTML = `Author: <span>${book.author}</span>`;
+    book_card.appendChild(author);
 
 
-    let bookRead = document.createElement('p')
-    if(book.isRead) {
-        bookRead.innerText = `Read already`
+
+    let pages = document.createElement("p");
+    pages.innerHTML = `Length: <span>${book.pages} pages long</span>`;
+    book_card.append(pages);
+
+    let bookRead = document.createElement("p");
+    
+    if (book.isRead) {
+      bookRead.innerHTML = `Status: <span>Read</span>`;
+      bookRead.classList = "book-status-read";
     } else {
-        bookRead.innerText = `Not Read Yet`;
+      bookRead.innerHTML = `Status: <span>Not Read</span>`;
+      bookRead.classList = "book-status-not-read";
     }
-    book_div.append(bookRead);
-
+    book_card.append(bookRead);
   });
 };
+
+
 
 displayBook();
