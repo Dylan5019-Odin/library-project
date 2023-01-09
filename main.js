@@ -39,3 +39,38 @@ addBookToLibrary(theDrawingOfThree);
 
 console.log(myLibrary);
 
+//Displaying Each Book in the MyLibrary Array
+const displayBook = () => {
+  let library = document.querySelector(".library");
+
+  myLibrary.forEach((book, index) => {
+    let book_div = document.createElement("div");
+    book_div.className = `book_${index}`;
+    library.append(book_div);
+
+
+    let title = document.createElement("h1");
+    title.innerText = book.title;
+    book_div.appendChild(title);
+
+    let author = document.createElement("p");
+    author.innerText = book.author;
+    book_div.appendChild(author);   
+
+    let pages = document.createElement("p")
+    pages.innerText = `${book.pages} pages`;
+    book_div.append(pages);
+
+
+    let bookRead = document.createElement('p')
+    if(book.isRead) {
+        bookRead.innerText = `Read already`
+    } else {
+        bookRead.innerText = `Not Read Yet`;
+    }
+    book_div.append(bookRead);
+
+  });
+};
+
+displayBook();
