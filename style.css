@@ -1,48 +1,95 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
+/* CSS Related To Adding a new Book */
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.new-book-btn {
+  display: grid;
+  place-items: center;
+}
+
+/* CSS Related to the Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CSS Related to Displaying Book Information */
 .library {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 12px;
-    padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  padding: 12px;
 }
 
 .card {
- display: flex;
- flex-direction: column;
- box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
- border-radius: 8px;
- width: 100%;
- height: 100%;
- text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
-.card h1{
-    font-size: 24px;
-    border-bottom: 1px solid grey;
+.card h1 {
+  font-size: 24px;
+  border-bottom: 1px solid grey;
 }
 
-
-.card p{
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 0;
+.card p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
-.card p span{
-    font-size: 16px;
-    margin-left: 4px;
-    font-weight: 300;
-    
+.card p span {
+  font-size: 16px;
+  margin-left: 4px;
+  font-weight: 300;
 }
 
+/*Books Status*/
 .book-status-not-read {
-    background: rgba(229,0,0,.2);
+  background: rgba(229, 0, 0, 0.2);
 }
 
 .book-status-read {
-    background: rgba(104,201,61,.2);
+  background: rgba(104, 201, 61, 0.2);
 }

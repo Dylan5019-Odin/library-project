@@ -78,4 +78,32 @@ const displayBook = () => {
 
 
 
+// Code used to control displaying the modal
+
+let modal = document.getElementById("myModal");
+
+let modalBtn = document.getElementById("new-book-btn");
+
+let span = document.querySelector(".close");
+
+modalBtn.onclick = () => {
+  modal.style.display = 'block';
+}
+
+span.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+
+
+
+
+
+
 displayBook();
