@@ -91,7 +91,23 @@ body {
   font-weight: 500;
 }
 
+
+
 /* CSS Related to Displaying Book Information */
+
+.remove-book {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 24px;
+  margin: 4px;
+}
+
+.remove-book:hover {
+  cursor: pointer;
+}
+
+
 .library {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -100,6 +116,7 @@ body {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
@@ -134,3 +151,4 @@ body {
 .book-status-read {
   background: rgba(104, 201, 61, 0.2);
 }
+

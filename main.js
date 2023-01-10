@@ -70,6 +70,12 @@ const displayBook = () => {
       bookRead.innerHTML = `Status: <span>Not Read</span>`;
       bookRead.classList = "book-status-not-read";
     }
+
+    let removeBook = document.createElement('div');
+    removeBook.classList = "remove-book";
+    removeBook.innerHTML = '<span>&times;</span>';
+    book_card.append(removeBook);
+
     book_card.append(bookRead);
   });
 };
@@ -96,9 +102,39 @@ window.onclick = (event) => {
   }
 };
 
-// Code to ensure only one checkbox is allowed to be checked
+
+//Add New Book - Form Submit Handling
+
+const formHandler = (event) => {
+  event.preventDefault();
+
+  // Check If Form is Valid
+  let form = document.getElementById("newBookForm");
+  let formStatus = form.checkValidity();
+  form.reportValidity();
+
+  if (formStatus) {
+    //Retrieve Values From The Form
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let readStatus = document.querySelector('input[name="readStatus"]:checked');
+    let isRead = readStatus.id == "notRead" ? false : true;
+
+    let newBook = new Book(title, author, pages, isRead);
+    addBookToLibrary(newBook);
+
+    let library = document.querySelector(".library");
+    library.innerHTML = "";
+
+    displayBook();
+
+    modal.style.display = "none";
+  }
+};
+
+document.getElementById("addBookBtn").addEventListener("click", formHandler);
 
 
-
-
+// Render Books When Page Loads
 displayBook();

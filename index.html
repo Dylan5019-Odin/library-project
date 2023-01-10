@@ -15,23 +15,23 @@
         <!-- Modal -->
         <div id="myModal" class="modal">
           <div class="modal-content">
-            <form action="#">
+            <form id="newBookForm" action="#">
               <div class="new-book-form">
                 <div class="input-option">
                   <label for="title">Book Title:</label>
-                  <input type="text" name="title" id="title" />
+                  <input type="text" name="title" id="title" required/>
                 </div>
                 <div class="input-option">
                   <label for="author">Book Author:</label>
-                  <input type="text" name="author" id="author" />
+                  <input type="text" name="author" id="author" required/>
                 </div>
                 <div class="input-option">
                   <label for="pages"># of Pages:</label>
-                  <input type="number" name="pages" id="pages" />
+                  <input type="number" name="pages" id="pages" required />
                 </div>
                 <div class="form-radio">
                   <div>
-                    <input type="radio" name="readStatus" id="isRead" />
+                    <input type="radio" name="readStatus" id="isRead" required/>
                     <label for="isRead">Read</label>
                   </div>
                   <div class="left-radio">
@@ -39,7 +39,7 @@
                     <label for="notRead">Not Read</label>
                   </div>
                 </div>
-                <button>Add Book</button>
+                <button class="add-book-btn" id="addBookBtn">Add Book</button>
               </div>
             </form>
             <span class="close">&times;</span>
