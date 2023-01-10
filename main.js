@@ -9,12 +9,18 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
+// Functions Related to the Book Object
+
 //Prototype info function to display book information
 Book.prototype.info = function () {
   return (
     `${this.title} by ${this.author}, ${this.pages} pages, ` +
     (this.isRead ? "already read" : "not read yet")
   );
+};
+
+Book.prototype.toggleStatus = function () {
+  this.isRead = !this.isRead;
 };
 
 //Function to Add a book to the library array
@@ -29,43 +35,38 @@ const removeBookFromLibrary = (index) => {
 };
 
 
-//Testing the Function
-let theHobbit = new Book("The Hobbit", "J.R.R Tolken", 294, true);
-
-let theDrawingOfThree = new Book(
-  "The Drawing Of Three",
-  "Stephan King",
-  452,
-  false
-);
-
-addBookToLibrary(theHobbit);
-addBookToLibrary(theDrawingOfThree);
-
-
+//Functions Related to Displaying the Books && Handling Book Related Events
 
 //Function to add event handler for removing a book
 const addRemoveEvent = () => {
   let removeBtns = document.querySelectorAll(".remove-book");
 
-  removeBtns.forEach(button => {
-    button.addEventListener('click',  (event) => {
+  removeBtns.forEach((button) => {
+    button.addEventListener("click", (event) => {
       let bookIndex = button.parentElement.id.split("_")[1];
       removeBookFromLibrary(bookIndex);
       displayBook();
-      addRemoveEvent();
-    })
-  })
+    });
+  });
+};
 
- 
-}
+//Function to add event handler for toggling the read status of a book
+const addToggleStatusEvent = () => {
+  let toogleBtns = document.querySelectorAll(".book-toggle-btn");
 
+  toogleBtns.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      let bookIndex = button.parentElement.id.split("_")[1];
+      myLibrary[bookIndex].toggleStatus();
+      displayBook();
+    });
+  });
+};
 
-
-//Displaying Each Book in the MyLibrary Array
-const displayBook = () => {
+//Creating the HTML for Each Book in the MyLibrary Array
+const generateDisplayHTML = () => {
   let library = document.querySelector(".library");
-   library.innerHTML = "";
+  library.innerHTML = "";
 
   myLibrary.forEach((book, index) => {
     let book_card = document.createElement("div");
@@ -89,27 +90,36 @@ const displayBook = () => {
 
     if (book.isRead) {
       bookRead.innerHTML = `Status: <span>Read</span>`;
-      bookRead.classList = "book-status-read";
+      title.classList = "book-status-read";
     } else {
       bookRead.innerHTML = `Status: <span>Not Read</span>`;
-      bookRead.classList = "book-status-not-read";
+      title.classList = "book-status-not-read";
     }
+    book_card.append(bookRead);
+
+    let toggleRead = document.createElement("button");
+    toggleRead.classList = "book-toggle-btn";
+    toggleRead.innerHTML = `Toggle Read`;
+    book_card.append(toggleRead);
 
     let removeBook = document.createElement("div");
     removeBook.classList = "remove-book";
     removeBook.innerHTML = "<span>&times;</span>";
     book_card.append(removeBook);
-
-    book_card.append(bookRead);
-
-
- 
   });
+};
+
+// Function to display the HTML and Add Event Listeners to each book's elements
+
+const displayBook = () => {
+  generateDisplayHTML();
+  addRemoveEvent();
+  addToggleStatusEvent();
 };
 
 
 
-// Code used to control displaying the modal
+// Code Related to the Modal and Add Book Form
 
 let modal = document.getElementById("myModal");
 
@@ -131,7 +141,6 @@ window.onclick = (event) => {
   }
 };
 
-
 //Add New Book - Form Submit Handling
 
 const formHandler = (event) => {
@@ -152,11 +161,10 @@ const formHandler = (event) => {
 
     let newBook = new Book(title, author, pages, isRead);
     addBookToLibrary(newBook);
-   
 
     form.reset();
     displayBook();
-    addRemoveEvent();
+
     modal.style.display = "none";
   }
 };
@@ -165,8 +173,7 @@ document.getElementById("addBookBtn").addEventListener("click", formHandler);
 
 
 
-
-// Render Books When Page Loads
+//Displaying Example Data
+let theHobbit = new Book("The Hobbit", "J.R.R Tolken", 294, true);
+addBookToLibrary(theHobbit);
 displayBook();
-addRemoveEvent();
-

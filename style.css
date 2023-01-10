@@ -3,6 +3,17 @@ body {
   padding: 0;
 }
 
+button {
+  border: 1px solid lightgrey;
+  background-color: lightgoldenrodyellow;
+  height: 1.5rem
+  
+}
+
+button:hover {
+  opacity: .5;
+}
+
 /* CSS Related To Adding a new Book */
 .content {
   width: 100%;
@@ -13,6 +24,13 @@ body {
   display: grid;
   place-items: center;
 }
+
+.add-book-btn {
+  width: 20vw;
+  margin-top: 12px;
+  border-radius: 3px;
+}
+
 
 /* CSS Related to the Modal */
 .modal {
@@ -100,7 +118,7 @@ body {
   top: 0px;
   right: 0px;
   font-size: 24px;
-  margin: 4px;
+  margin-right: 4px;
   z-index: 1;
 }
 
@@ -114,6 +132,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
   padding: 12px;
+  margin: 12px;
 }
 
 .card {
@@ -130,6 +149,7 @@ body {
 .card h1 {
   font-size: 24px;
   border-bottom: 1px solid grey;
+  margin: 0;
 }
 
 .card p {
@@ -153,3 +173,7 @@ body {
   background: rgba(104, 201, 61, 0.2);
 }
 
+.book-toggle-btn {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 5%;
+}
