@@ -17,25 +17,29 @@
           <div class="modal-content">
             <form action="#">
               <div class="new-book-form">
-                <label for="title">Book Title:</label>
-                <input type="text" name="title" id="title" />
-
-                <label for="author">Book Author:</label>
-                <input type="text" name="author" id="author" />
-
-                <label for="pages"># of Pages:</label>
-                <input type="number" name="pages" id="pages" />
-
+                <div class="input-option">
+                  <label for="title">Book Title:</label>
+                  <input type="text" name="title" id="title" />
+                </div>
+                <div class="input-option">
+                  <label for="author">Book Author:</label>
+                  <input type="text" name="author" id="author" />
+                </div>
+                <div class="input-option">
+                  <label for="pages"># of Pages:</label>
+                  <input type="number" name="pages" id="pages" />
+                </div>
                 <div class="form-checkboxs">
                   <div>
                     <input type="checkbox" name="isRead" id="isRead" />
                     <label for="isRead">Read</label>
                   </div>
-                  <div>
+                  <div class="left-checkbox">
                     <input type="checkbox" name="notRead" id="notRead" />
                     <label for="notRead">Not Read</label>
                   </div>
                 </div>
+                <button>Add Book</button>
               </div>
             </form>
             <span class="close">&times;</span>

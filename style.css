@@ -36,8 +36,8 @@ body {
   padding: 15px 20px;
   border: 1px solid #888;
   border-radius: 8px;
-  width: 20%;
-  height: auto;
+  width: 30%;
+  height: 20;
   overflow: auto;
 }
 
@@ -59,13 +59,31 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  
 }
 
 .form-checkboxs {
   margin-top: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   
+}
+
+.form-checkboxs .left-checkbox {
+    margin-left: 4em;
+}
+
+.input-option {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-option label{
+    width: 6em;
+}
+
+.input-option input{
+    height: 1rem;
 }
 
 .new-book-form {
