@@ -29,25 +29,48 @@ body {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 15px 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 20%;
+  height: auto;
+  overflow: auto;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* CSS Related to the Form for adding a new book */
+.new-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-checkboxs {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.new-book-form {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 /* CSS Related to Displaying Book Information */

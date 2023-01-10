@@ -15,8 +15,30 @@
         <!-- Modal -->
         <div id="myModal" class="modal">
           <div class="modal-content">
+            <form action="#">
+              <div class="new-book-form">
+                <label for="title">Book Title:</label>
+                <input type="text" name="title" id="title" />
+
+                <label for="author">Book Author:</label>
+                <input type="text" name="author" id="author" />
+
+                <label for="pages"># of Pages:</label>
+                <input type="number" name="pages" id="pages" />
+
+                <div class="form-checkboxs">
+                  <div>
+                    <input type="checkbox" name="isRead" id="isRead" />
+                    <label for="isRead">Read</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="notRead" id="notRead" />
+                    <label for="notRead">Not Read</label>
+                  </div>
+                </div>
+              </div>
+            </form>
             <span class="close">&times;</span>
-            <p>Some Text Here</p>
           </div>
         </div>
         <!-- End Modal -->
