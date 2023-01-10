@@ -57,14 +57,12 @@ const displayBook = () => {
     author.innerHTML = `Author: <span>${book.author}</span>`;
     book_card.appendChild(author);
 
-
-
     let pages = document.createElement("p");
     pages.innerHTML = `Length: <span>${book.pages} pages long</span>`;
     book_card.append(pages);
 
     let bookRead = document.createElement("p");
-    
+
     if (book.isRead) {
       bookRead.innerHTML = `Status: <span>Read</span>`;
       bookRead.classList = "book-status-read";
@@ -76,8 +74,6 @@ const displayBook = () => {
   });
 };
 
-
-
 // Code used to control displaying the modal
 
 let modal = document.getElementById("myModal");
@@ -87,8 +83,8 @@ let modalBtn = document.getElementById("new-book-btn");
 let span = document.querySelector(".close");
 
 modalBtn.onclick = () => {
-  modal.style.display = 'block';
-}
+  modal.style.display = "block";
+};
 
 span.onclick = () => {
   modal.style.display = "none";
@@ -96,12 +92,11 @@ span.onclick = () => {
 
 window.onclick = (event) => {
   if (event.target == modal) {
-    modal.style.display = 'none';
+    modal.style.display = "none";
   }
-}
+};
 
-
-
+// Code to ensure only one checkbox is allowed to be checked
 
 
 

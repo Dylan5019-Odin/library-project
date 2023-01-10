@@ -62,14 +62,14 @@ body {
   
 }
 
-.form-checkboxs {
+.form-radio {
   margin-top: 5px;
   display: flex;
   justify-content: center;
   
 }
 
-.form-checkboxs .left-checkbox {
+.form-radio .left-radio {
     margin-left: 4em;
 }
 
