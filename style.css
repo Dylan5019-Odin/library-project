@@ -101,6 +101,7 @@ body {
   right: 0px;
   font-size: 24px;
   margin: 4px;
+  z-index: 1;
 }
 
 .remove-book:hover {

@@ -23,6 +23,12 @@ const addBookToLibrary = (book) => {
   myLibrary.push(book);
 };
 
+//Function To remove a book from the library
+const removeBookFromLibrary = (index) => {
+  myLibrary.splice(index, 1);
+};
+
+
 //Testing the Function
 let theHobbit = new Book("The Hobbit", "J.R.R Tolken", 294, true);
 
@@ -34,14 +40,32 @@ let theDrawingOfThree = new Book(
 );
 
 addBookToLibrary(theHobbit);
-
 addBookToLibrary(theDrawingOfThree);
 
-console.log(myLibrary);
+
+
+//Function to add event handler for removing a book
+const addRemoveEvent = () => {
+  let removeBtns = document.querySelectorAll(".remove-book");
+
+  removeBtns.forEach(button => {
+    button.addEventListener('click',  (event) => {
+      let bookIndex = button.parentElement.id.split("_")[1];
+      removeBookFromLibrary(bookIndex);
+      displayBook();
+      addRemoveEvent();
+    })
+  })
+
+ 
+}
+
+
 
 //Displaying Each Book in the MyLibrary Array
 const displayBook = () => {
   let library = document.querySelector(".library");
+   library.innerHTML = "";
 
   myLibrary.forEach((book, index) => {
     let book_card = document.createElement("div");
@@ -71,14 +95,19 @@ const displayBook = () => {
       bookRead.classList = "book-status-not-read";
     }
 
-    let removeBook = document.createElement('div');
+    let removeBook = document.createElement("div");
     removeBook.classList = "remove-book";
-    removeBook.innerHTML = '<span>&times;</span>';
+    removeBook.innerHTML = "<span>&times;</span>";
     book_card.append(removeBook);
 
     book_card.append(bookRead);
+
+
+ 
   });
 };
+
+
 
 // Code used to control displaying the modal
 
@@ -123,12 +152,11 @@ const formHandler = (event) => {
 
     let newBook = new Book(title, author, pages, isRead);
     addBookToLibrary(newBook);
+   
 
-    let library = document.querySelector(".library");
-    library.innerHTML = "";
-
+    form.reset();
     displayBook();
-
+    addRemoveEvent();
     modal.style.display = "none";
   }
 };
@@ -136,5 +164,9 @@ const formHandler = (event) => {
 document.getElementById("addBookBtn").addEventListener("click", formHandler);
 
 
+
+
 // Render Books When Page Loads
 displayBook();
+addRemoveEvent();
+
